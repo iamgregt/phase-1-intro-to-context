@@ -12,6 +12,7 @@ function createEmployeeRecord(array){
 
 function createEmployeeRecords(arrayOfArrays){
     let employeeRecords = arrayOfArrays.map(employee => createEmployeeRecord(employee))
+    console.log(employeeRecords)
     return employeeRecords
     
 }
@@ -54,6 +55,21 @@ function hoursWorkedOnDate(record, date){
 
 function wagesEarnedOnDate(record, date){
     let pay = hoursWorkedOnDate(record, date) * record.payPerHour
-    return pay
+    return parseFloat(pay.toString())
 
+}
+
+function allWagesFor(record){
+    let dates = record.timeInEvents.map(e =>{
+        return e.date
+    })
+    let pay = dates.reduce((total, date) => {
+        return total + wagesEarnedOnDate(record, date)
+    }, 0)
+    return pay
+}
+
+function calculatePayroll(arrayOfEmployees){
+    let records = createEmployeeRecords(arrayOfEmployees)
+    console.log(records)
 }
