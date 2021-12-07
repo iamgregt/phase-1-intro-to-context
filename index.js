@@ -70,6 +70,5 @@ function allWagesFor(record){
 }
 
 function calculatePayroll(arrayOfEmployees){
-    let records = createEmployeeRecords(arrayOfEmployees)
-    console.log(records)
+    console.log(arrayOfEmployees)
 }
